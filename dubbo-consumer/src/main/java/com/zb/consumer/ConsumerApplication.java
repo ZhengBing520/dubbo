@@ -12,8 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ConsumerApplication {
 
     public static void main(String[] args) {
-        // 测试是否完成
-        System.out.println("dddddddddd");
         SpringApplication.run(ConsumerApplication.class, args);
     }
 }
