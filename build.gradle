@@ -1,0 +1,61 @@
+allprojects {
+    group 'com.zb'
+    version '1.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    ext {
+        roosterVersion = "2.2.+"
+    }
+
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    }
+
+    dependencies {
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version: '2.0.4.RELEASE'
+        compile("org.springframework.boot:spring-boot-starter:2.0.3.RELEASE")
+        compile("org.apache.commons:commons-lang3:3.4")
+        compile group: 'org.apache.curator', name: 'curator-framework', version: '4.0.1'
+        compile group: 'com.alibaba.boot', name: 'dubbo-spring-boot-starter', version: '0.2.0'
+//        compile group: 'com.gitee.reger', name: 'spring-boot-starter-dubbo', version: '1.1.1'
+        compile group: 'commons-logging', name: 'commons-logging', version: '1.2'
+
+        testCompile("org.springframework.boot:spring-boot-starter-test:2.0.3.RELEASE")
+        testCompile("junit:junit:4.+")
+
+    }
+
+    buildscript {
+        repositories {
+            maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        }
+        dependencies {
+            classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.+")
+        }
+    }
+
+    configurations {
+        compile.exclude group: "org.springframework.boot", module: "spring-boot-starter-logging"
+    }
+
+    compileJava {
+        options.encoding = "utf-8"
+        options.compilerArgs << "-Xlint:unchecked"
+    }
+
+    compileTestJava {
+        options.encoding = "utf-8"
+        options.compilerArgs << "-Xlint:unchecked"
+    }
+
+    defaultTasks "assemble"
+}
+
+

@@ -1,0 +1,17 @@
+dubbo:
+  application:
+    name: demo-consumer #这里需要根据情况修改
+  registry:
+    protocol: zookeeper
+    address: 127.0.0.1
+    port: 2181
+  protocol:
+    name: dubbo
+  scan:
+    base-packages: com.zb.consumer.controller
+server:
+  port: 9081
+
+demo:
+  service:
+    version: 1.0.0

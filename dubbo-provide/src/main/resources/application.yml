@@ -1,0 +1,20 @@
+server:
+  port: 9080
+
+dubbo:
+  application:
+    name: dubbo-provide
+  registry:
+    protocol: zookeeper
+    address: 127.0.0.1
+    port: 2181
+  protocol:
+    name: dubbo
+    serialization: hessian2
+  provider:
+    retries: 0
+  scan:
+    base-packages: com.zb.provider.service.impl  # dubbo服务发布者所在的包，注意根据实际情况修改这个路径
+demo:
+  service:
+    version: 1.0.0
