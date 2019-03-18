@@ -10,7 +10,7 @@ import com.zb.service.DemoService;
 public class DemoServiceImpl implements DemoService {
     @Override
     public String sayHello(String name) {
-        System.out.println("测试");
+        System.out.println("测试222222222222222222222");
         return "hello " + name + "（from springboot）";
     }
 }
