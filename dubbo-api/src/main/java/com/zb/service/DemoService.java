@@ -5,6 +5,6 @@ package com.zb.service;
  * 服务API接口类
  */
 public interface DemoService {
-
+// 测试冲突
     String sayHello(String name);
 }
